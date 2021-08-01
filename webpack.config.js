@@ -19,7 +19,22 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 },
-            }
+            },
+            {
+                // terminar com .js
+                test: /\.css$/,
+                // não converte
+                exclude: /node_modules/,
+                use: [
+                    {  loader: 'style-loader' },
+                    {  loader: 'css-loader'  },
+                ],
+            },
+            {
+                // terminar com .js
+                test: /.*\.(gif|png|jpe?g)$/i,
+                use: {  loader: 'file-loader'  }
+            },
         ]
     },
 }
